@@ -1,7 +1,9 @@
 import jwt from "jsonwebtoken";
-import config from "../config/auth.json" assert { type: "json" };
 
 const authMiddleware = (req, res, next) => {
+    const loadJSON = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
+
+    const config = loadJSON('../config/auth.json');
     const authHeader = req.headers.authorization;
   
     if (!authHeader)
