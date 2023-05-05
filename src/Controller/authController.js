@@ -1,7 +1,7 @@
 import atleta from "../Models/Atleta.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-
+import fs from "fs";
 class authController{
     
 
