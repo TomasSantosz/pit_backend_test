@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import fs from "fs";
 
 const authMiddleware = (req, res, next) => {
     const loadJSON = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
