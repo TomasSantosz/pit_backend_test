@@ -1,12 +1,14 @@
 import atleta from "../Models/Atleta.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import config from "../config/auth.json" assert { type: "json" };
 
 class authController{
-
+    
 
     static generateToken(params = {}){
+        const loadJSON = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
+
+        const config = loadJSON('../config/auth.json');
         return jwt.sign(params,config.secret, {
             expiresIn: 86400,
         } )
