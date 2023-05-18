@@ -4,11 +4,11 @@ import authMiddleware  from "../middlewares/auth.js ";
 
 const router = express.Router();
 
-router.use(authMiddleware)
+//router.use(authMiddleware)
 
 router
 
 .get("/auth/projects", projectController.teste)
 
 
-export default router
+export default router;

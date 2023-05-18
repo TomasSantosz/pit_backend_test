@@ -9,6 +9,9 @@ const router = express.Router();
 router
 .post("/auth/registro", authController.CadastroLogin)
 .post("/auth/autentica", authController.Autentificacao)
+.get("/atleta", authController.ListarAtletas)
+.get("/atleta/:id", authController.ListarAtleta)
+.put("/atleta/:id", authController.EditarAtleta)
 
 
 

@@ -2,7 +2,36 @@ import atleta from "../Models/Atleta.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import fs from "fs";
+
 class authController{
+
+    static ListarAtletas = (req, res) =>{
+        atleta.find().then(atleta => res.status(200).json(atleta))
+        .catch(erro => res.status(500).json({ erro: erro.message }));
+    }
+    static ListarAtleta = async (req, res) =>{
+        try {
+            const id = req.params.id;
+            const a = await atleta.findById(id);
+            if (!a) {
+              res.status(400).send({ message: `Id do Atleta não localizado` });
+            } else {
+              res.status(200).send(a);
+            }
+          } catch (err) {
+            res.status(500).send({ message: err.message });
+          }
+    }
+
+    static EditarAtleta = async (req, res) =>{
+        try {
+            const id = req.params.id;
+            const AtletaAtualizado = await atleta.findByIdAndUpdate(id, {$set: req.body});
+            res.status(200).send({ message: 'Atleta atualizado com sucesso' });
+        } catch (err) {
+            res.status(500).send({ message: err.message });
+        }
+    }
     
 
     static generateToken(params = {}){

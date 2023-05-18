@@ -3,7 +3,7 @@ import esportes from "./EsportesRoutes.js";
 import competicoes from "./CompeticoesRoutes.js";
 import atleta from "./AuthRoutes.js";
 import project from "./ProjectRoute.js";
-
+import CompeticaoAtleta from "./CompeticaoAtletaRoutes.js";
 const routes = (app) => {
     app.route('/').get((req,res)=>{
         res.status(200).send({titulo: "Trabalho Final"})
@@ -14,7 +14,8 @@ const routes = (app) => {
         esportes,
         competicoes,
         atleta,
-        project
+        project,
+        CompeticaoAtleta
     
     )
 

@@ -5,10 +5,8 @@ const EsporteSchema = new mongoose.Schema(
         
         id:{type: String},
         nome:{type: String, required: true },
+        aproved:{type: Boolean, required: true},
         Regras:{type: String, required: true}
-
-
-
 
 }
     

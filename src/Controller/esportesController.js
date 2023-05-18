@@ -24,8 +24,8 @@ class EsportesController{
     
     static CadastrarEsportes = (req, res) =>{
         let esporte = new esportes(req.body);
-
-        esporte.save()
+        esporte.aproved = false;
+        esporte.save() 
     .then(() => {
         res.status(200).send(esporte.toJSON());
     })
